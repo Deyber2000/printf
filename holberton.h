@@ -1,6 +1,6 @@
 #ifndef HOLB_H
 #define HOLB_H
-
+#include <stdarg.h>
 /**
  * struct validTypes - structure to lookup functions for valid types
  * @valid: flags are preceded by a '%' character.
@@ -12,8 +12,10 @@ typedef struct validTypes
 	int (*f)();
 } v_types;
 
+
 int _printf(const char *format, ...);
 int print_string();
+int print_char();
 int print_decimal();
 int print_integer();
 int print_adress();
@@ -25,5 +27,5 @@ int print_cust_string();
 int print_rev_string();
 int print_rot13();
 int print_percent();
-
+int _putchar();
 #endif
