@@ -4,6 +4,7 @@
  * _printf - function to do formatted printing.
  * man 3 printf.
  * @format: Character string to be printed.
+ * Return: Number of bytes printed.
  */
 
 int _printf(const char *format, ...)
@@ -12,20 +13,19 @@ int _printf(const char *format, ...)
 	va_list list;
 
 	va_start(list, format);
-	v_types valid_types[] =
-			{
-					{"c", print_char},
-					{"s", print_string},
-					{"d", print_decimal},
-					{"i", print_integer},
-					{"p", print_adress},
-					{"b", print_binary},
-					{"o", print_octal},
-					{"x", print_hexa},
-					{"X", print_up_hexa},
-					{"S", print_cust_string},
-					{"r", print_rev_string},
-					{"R", print_rot13} {"%", print_percent}};
+	v_types valid_types[] = {
+			{"c", print_char},
+			{"s", print_string},
+			{"d", print_decimal},
+			{"i", print_integer},
+			{"p", print_adress},
+			{"b", print_binary},
+			{"o", print_octal},
+			{"x", print_hexa},
+			{"X", print_up_hexa},
+			{"S", print_cust_string},
+			{"r", print_rev_string},
+			{"R", print_rot13} {"%", print_percent}};
 
 	for (i = 0; format[i] && format; i++)
 	{
