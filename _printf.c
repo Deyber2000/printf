@@ -25,7 +25,8 @@ int _printf(const char *format, ...)
 			{"X", print_up_hexa},
 			{"S", print_cust_string},
 			{"r", print_rev_string},
-			{"R", print_rot13} {"%", print_percent}};
+			{"R", print_rot13},
+			{"%", print_percent}};
 
 	for (i = 0; format[i] && format; i++)
 	{
