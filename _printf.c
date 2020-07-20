@@ -15,31 +15,37 @@ int _printf(const char *format, ...)
 	va_start(list, format);
 	v_types valid_types[] = {
 		{"c", print_char},
-		        {"s", print_string},
-			{"d", print_decimal},
-			{"i", print_integer},
-			/**{"p", print_adress},
-			{"b", print_binary},
-			{"o", print_octal},
-			{"x", print_hexa},
-			{"X", print_up_hexa},
-			{"S", print_cust_string},
-			{"r", print_rev_string},
-			{"R", print_rot13},
-			{"%", print_percent}};**/};
+		{"s", print_string},
+		{"d", print_decimal},
+		{"i", print_integer},
+		{"u", print_unsigned},
+		{"p", print_adress},
+		{"b", print_binary},
+		{"o", print_octal},
+		{"x", print_hexa},
+		{"X", print_up_hexa}
+		{"S", print_cust_string},
+		{"r", print_rev_string},
+		{"R", print_rot13}};
 
 	for (i = 0; format[i] && format; i++)
 	{
 		if (format[i] == '%')
 		{
-			for (j = 0; j < 4; j++)
+			if(format[i + 1] != '%')
 			{
-				if (format[i + 1] == *valid_types[j].valid)
+				for (j = 0; j < 9; j++)
 				{
-					printed += valid_types[j].f(list);
-					i++;
+					if (format[i + 1] == *valid_types[j].valid)
+					{
+						printed += valid_types[j].f(list);
+						i++;
+					}
 				}
 			}
+			else
+
+				_putchar(format[i + 1]), ++printed;
 		}
 		else
 			_putchar(format[i]), ++printed;
