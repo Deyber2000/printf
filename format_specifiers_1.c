@@ -30,6 +30,7 @@ int print_decimal(va_list d)
 /**
  * print_decimal_helper - prints a decimal number.
  * @n: passed int.
+ * @printed: number of characters printed.
  * Return: number of character printed.
  */
 
@@ -64,6 +65,7 @@ int print_integer(va_list d)
 /**
  * print_integer_helper - prints an integer number.
  * @n: passed int.
+ * @printed: number of characters printed.
  * Return: number of character printed.
  */
 
