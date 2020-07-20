@@ -14,21 +14,34 @@ typedef struct validTypes
 	int (*f)();
 } v_types;
 
-
+/** _printf.c **/
 int _printf(const char *format, ...);
-int print_string(va_list);
+
+/** format_specifiers_1.c **/
 int print_char(va_list);
 int print_decimal(va_list);
+int print_decimal_helper(int n, int printed);
 int print_integer(va_list);
-/**
-int print_adress(va_list);
-int print_binary(va_list);
+int print_integer_helper(int n, int printed);
+
+/** format_specifiers_2.c **/
+int print_string(va_list);
+int print_unsigned(va_list);
 int print_octal(va_list);
+int print_binary(va_list);
+
+/** format_specifiers_3.c **/
+int print_adress(va_list);
+int print_cust_string(va_list);
+
+/** format_specifiers_4.c **/
 int print_hexa(va_list);
 int print_up_hexa(va_list);
-int print_cust_string(va_list);
+int _hex_str(unsigned long int, unsigned int, char);
 int print_rev_string(va_list);
 int print_rot13(va_list);
-int print_percent(va_list); **/
+
+/** tools.c **/
 int _putchar(char);
+
 #endif
