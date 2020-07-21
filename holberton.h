@@ -1,7 +1,9 @@
 #ifndef HOLB_H
 #define HOLB_H
 #include <stdarg.h>
+#include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * struct validTypes - structure to lookup functions for valid types
