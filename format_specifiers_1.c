@@ -13,72 +13,39 @@ int print_char(va_list c)
 }
 
 /**
- * print_decimal - prints a decimal number.
- * @d: passed list.
- * Return: number of character printed.
- */
-
-int print_decimal(va_list d)
-{
-	int counter = 0;
-	int n = va_arg(d, int);
-	int printed = print_decimal_helper(n, counter);
-
-	return (printed);
-}
-
-/**
- * print_decimal_helper - prints a decimal number.
- * @n: passed int.
- * @printed: number of characters printed.
- * Return: number of character printed.
- */
-
-int print_decimal_helper(int n, int printed)
-{
-	++printed;
-	if (n < 0)
-		_putchar('-'), ++printed, n = -n;
-	if (n / 10)
-	{
-		print_decimal_helper(n / 10, printed);
-	}
-	_putchar(n % 10 + '0');
-	return (printed);
-}
-
-/**
  * print_integer - prints integers.
- * @d: passed list.
+ * @integer: passed list.
  * Return: number of character printed.
  */
 
-int print_integer(va_list d)
+int print_integer(va_list integer)
 {
-	int counter = 0;
-	int n = va_arg(d, int);
-	int printed = print_integer_helper(n, counter);
+	int count = 0, i;
+	int *arr;
+	int n = va_arg(integer, int);
+	int tmp = n;
 
-	return (printed);
-}
-
-/**
- * print_integer_helper - prints an integer number.
- * @n: passed int.
- * @printed: number of characters printed.
- * Return: number of character printed.
- */
-
-int print_integer_helper(int n, int printed)
-{
-	++printed;
-	if (n < 0)
-		_putchar('-'), ++printed, n = -n;
-	if (n / 10)
+	while (n / 10 != 0)
 	{
-		++printed;
-		print_integer_helper(n / 10, printed);
+		n /= 10;
+		count++;
 	}
-	_putchar(n % 10 + '0');
-	return (printed);
+	if (tmp < 0)
+		_putchar('-');
+	count++;
+	arr = malloc(count * sizeof(int));
+	for (i = 0; i < count; i++)
+	{
+		arr[i] = tmp % 10;
+		tmp /= 10;
+	}
+	for (i = count - 1; i >= 0; i--)
+	{
+		_putchar(arr[i] + '0');
+	}
+	free(arr);
+	va_end(integer);
+	if (tmp < 0)
+		count++;
+	return (count);
 }

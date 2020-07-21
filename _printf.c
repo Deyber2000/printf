@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 	v_types valid_types[] = {
 			{"c", print_char},
 			{"s", print_string},
-			{"d", print_decimal},
+			{"d", print_integer},
 			{"i", print_integer},
 			{"u", print_unsigned},
 			{"p", print_adress},
