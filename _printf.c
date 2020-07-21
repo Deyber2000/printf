@@ -33,15 +33,14 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			if (format[i + 1] != '%')
+			for (j = 0; j < 13; j++)
 			{
-				for (j = 0; j < 13; j++)
-				{
-					if (format[i + 1] == *valid_types[j].valid)
-						printed += valid_types[j].f(list), i++;
-				}
+				if (format[i + 1] == *valid_types[j].valid)
+					printed += valid_types[j].f(list), i++;
 			}
-			else
+			if (format[i + 1] == '\0')
+				return (-1);
+			if (format[i + 1] == '%')
 				_putchar(format[i + 1]), ++printed;
 		}
 		else
