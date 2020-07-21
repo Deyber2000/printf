@@ -6,10 +6,10 @@
  * @alpha: Char 'A' to 'F' or 'a' to 'f'
  * Return: number of chars printed
  */
-int _hex_str(unsigned int n, unsigned int hex, char alpha)
+int _hex_str(unsigned long int n, unsigned int hex, char alpha)
 {
-	unsigned int a = n % hex;
-	unsigned int b = n / hex;
+	unsigned long int a = n % hex;
+	unsigned long int b = n / hex;
 	char c;
 
 	if (a > 9)
@@ -38,7 +38,7 @@ int _hex_str(unsigned int n, unsigned int hex, char alpha)
  */
 int print_hexa(va_list hexa)
 {
-        return (_hex_str(va_arg(hexa, unsigned int), 16, 'a'));
+	return (_hex_str(va_arg(hexa, unsigned int), 16, 'a'));
 }
 /**
  * print_up_hexa - printing upper case hexa
@@ -47,7 +47,7 @@ int print_hexa(va_list hexa)
  */
 int print_up_hexa(va_list hexa)
 {
-        return (_hex_str(va_arg(hexa, unsigned int), 16, 'A'));
+	return (_hex_str(va_arg(hexa, unsigned int), 16, 'A'));
 }
 
 /**
@@ -57,32 +57,32 @@ int print_up_hexa(va_list hexa)
  **/
 int print_binary(va_list bin)
 {
-        int count = 0, i;
-        int *arr;
-        unsigned int n = va_arg(bin, unsigned int);
-        unsigned int tmp = n;
+	int count = 0, i;
+	int *arr;
+	unsigned int n = va_arg(bin, unsigned int);
+	unsigned int tmp = n;
 
-        while (n / 2 != 0)
-        {
-                n /= 2;
-                count++;
-        }
-        count++;
-        arr = malloc(count * sizeof(int));
-        if (arr == NULL)
-        {
-                free(arr);
-                return (0);
-        }
-        for (i = 0; i < count; i++)
-        {
-                arr[i] = tmp % 2;
-                tmp /= 2;
-        }
-        for (i = count - 1; i >= 0; i--)
-        {
-                _putchar(arr[i] + '0');
-        }
-        free(arr);
-        return (count);
+	while (n / 2 != 0)
+	{
+		n /= 2;
+		count++;
+	}
+	count++;
+	arr = malloc(count * sizeof(int));
+	if (arr == NULL)
+	{
+		free(arr);
+		return (0);
+	}
+	for (i = 0; i < count; i++)
+	{
+		arr[i] = tmp % 2;
+		tmp /= 2;
+	}
+	for (i = count - 1; i >= 0; i--)
+	{
+		_putchar(arr[i] + '0');
+	}
+	free(arr);
+	return (count);
 }
