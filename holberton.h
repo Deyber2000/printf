@@ -18,6 +18,7 @@ typedef struct validTypes
 
 /** _printf.c **/
 int _printf(const char *format, ...);
+v_types definition(int);
 
 /** format_specifiers_1.c **/
 int print_char(va_list);
