@@ -31,7 +31,7 @@ int print_integer(va_list integer)
 		count++;
 	}
 	if (tmp < 0)
-		_putchar('-');
+		_putchar('-'), n = -n, tmp = -tmp;
 	count++;
 	arr = malloc(count * sizeof(int));
 	for (i = 0; i < count; i++)
