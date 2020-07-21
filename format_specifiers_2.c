@@ -1,6 +1,4 @@
 #include "holberton.h"
-#include <stdlib.h>
-#include <stdarg.h>
 
 /**
  * print_string - prints a string
