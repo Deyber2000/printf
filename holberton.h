@@ -21,8 +21,6 @@ int _printf(const char *format, ...);
 
 /** format_specifiers_1.c **/
 int print_char(va_list);
-int print_decimal(va_list);
-int print_decimal_helper(int n, int printed);
 int print_integer(va_list);
 int print_integer_helper(int n, int printed);
 
