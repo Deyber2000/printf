@@ -8,7 +8,7 @@
 
 int print_char(va_list c)
 {
-	_putchar((char)va_arg(c, int));
+	_putchar(va_arg(c, int));
 	return (1);
 }
 
@@ -20,7 +20,7 @@ int print_char(va_list c)
 
 int print_decimal(va_list d)
 {
-	int counter = 1;
+	int counter = 0;
 	int n = va_arg(d, int);
 	int printed = print_decimal_helper(n, counter);
 
@@ -55,7 +55,7 @@ int print_decimal_helper(int n, int printed)
 
 int print_integer(va_list d)
 {
-	int counter = 1;
+	int counter = 0;
 	int n = va_arg(d, int);
 	int printed = print_integer_helper(n, counter);
 

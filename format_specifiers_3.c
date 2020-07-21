@@ -8,7 +8,7 @@
 
 int print_adress(va_list hexa)
 {
-	int i, printed;
+	int i, printed = 0;
 	unsigned long int adress = va_arg(hexa, unsigned long int);
 	char *string = "(nil)";
 
@@ -20,7 +20,9 @@ int print_adress(va_list hexa)
 	}
 	_putchar('0');
 	_putchar('x');
-	return (_hex_str(adress, 16, 'a'));
+	printed += 2;
+	printed += _hex_str(adress, 16, 'a');
+	return (printed);
 }
 
 /**
