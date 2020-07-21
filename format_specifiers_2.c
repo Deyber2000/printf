@@ -14,7 +14,7 @@ int print_string(va_list s)
 
 	string = va_arg(s, char *);
 	if (string == NULL)
-		string = "(nil)";
+		string = "(null)";
 	for (i = 0; string[i]; i++)
 	{
 		_putchar(string[i]);
