@@ -84,5 +84,6 @@ int print_binary(va_list bin)
 		_putchar(arr[i] + '0');
 	}
 	free(arr);
+	va_end(bin);
 	return (count);
 }
