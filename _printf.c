@@ -46,6 +46,12 @@ int _printf(const char *format, ...)
 	return (printed);
 }
 
+/**
+ * definition - defines each element of the array
+ * @i: .
+ * Return: Eache element of the array of structures.
+ */
+
 v_types definition(int i)
 {
 	v_types valid_types[] = {
