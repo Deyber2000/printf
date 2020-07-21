@@ -11,8 +11,6 @@ int _printf(const char *format, ...)
 {
 	unsigned int printed = 0, i, j;
 	va_list list;
-
-	va_start(list, format);
 	v_types valid_types[] = {
 			{"c", print_char},
 			{"s", print_string},
@@ -27,6 +25,8 @@ int _printf(const char *format, ...)
 			{"S", print_cust_string},
 			{"r", print_rev_string},
 			{"R", print_rot13}};
+
+	va_start(list, format);
 	for (i = 0; format[i] && format; i++)
 	{
 		if (format[i] == '%')
