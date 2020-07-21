@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * _printf - function to do formatted printing.
+ * _printf - function to do formatted printing...
  * man 3 printf.
  * @format: Character string to be printed.
  * Return: Number of bytes printed.
