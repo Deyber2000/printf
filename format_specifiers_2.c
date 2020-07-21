@@ -19,6 +19,7 @@ int print_string(va_list s)
 	{
 		_putchar(string[i]);
 	}
+	va_end(s);
 	return (i);
 }
 /**
@@ -50,6 +51,8 @@ int print_unsigned(va_list u)
 		expo /= 10;
 		i++;
 	}
+	free(string);
+	va_end(u);
 	return (count);
 }
 /**
@@ -81,5 +84,6 @@ int print_octal(va_list oct)
 		_putchar(arr[i] + '0');
 	}
 	free(arr);
+	va_end(oct);
 	return (count);
 }
