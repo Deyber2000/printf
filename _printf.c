@@ -11,20 +11,10 @@ int _printf(const char *format, ...)
 {
 	unsigned int printed = 0, i, j;
 	va_list list;
-	v_types valid_types[] = {
-			{"c", print_char},
-			{"s", print_string},
-			{"d", print_integer},
-			{"i", print_integer},
-			{"u", print_unsigned},
-			{"p", print_adress},
-			{"b", print_binary},
-			{"o", print_octal},
-			{"x", print_hexa},
-			{"X", print_up_hexa},
-			{"S", print_cust_string},
-			{"r", print_rev_string},
-			{"R", print_rot13}};
+	v_types valid_types[13];
+
+	for (i = 0; i < 13; i++)
+		valid_types[i] = definition(i);
 
 	if (format == NULL)
 		return (-1);
@@ -54,4 +44,24 @@ int _printf(const char *format, ...)
 	}
 	va_end(list);
 	return (printed);
+}
+
+v_types definition(int i)
+{
+	v_types valid_types[] = {
+			{"c", print_char},
+			{"s", print_string},
+			{"d", print_integer},
+			{"i", print_integer},
+			{"u", print_unsigned},
+			{"p", print_adress},
+			{"b", print_binary},
+			{"o", print_octal},
+			{"x", print_hexa},
+			{"X", print_up_hexa},
+			{"S", print_cust_string},
+			{"r", print_rev_string},
+			{"R", print_rot13}};
+
+	return (valid_types[i]);
 }
