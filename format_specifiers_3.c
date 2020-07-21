@@ -34,7 +34,7 @@ int print_adress(va_list hexa)
 int print_cust_string(va_list s)
 {
 	char *string;
-	int i;
+	int i, printed = 0;
 
 	string = va_arg(s, char *);
 	if (string == NULL)
@@ -46,15 +46,19 @@ int print_cust_string(va_list s)
 			if (string[i] < 16)
 			{
 				_putchar('\\'), _putchar('x');
-				_putchar('0'), _hex_str(string[i], 16, 'A');
+				_putchar('0'), printed += 3;
+				printed += _hex_str(string[i], 16, 'A');
 			}
 			else
-				_putchar('\\'), _putchar('x'), _hex_str(string[i], 16, 'A');
+			{
+				_putchar('\\'), _putchar('x'), printed += 2;
+				printed += _hex_str(string[i], 16, 'A');
+			}
 		}
 		else
-			_putchar(string[i]);
+			_putchar(string[i]), ++printed;
 	}
-	return (i);
+	return (printed);
 }
 
 /**
