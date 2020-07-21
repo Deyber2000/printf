@@ -24,9 +24,10 @@ int _printf(const char *format, ...)
 			{"X", print_up_hexa},
 			{"S", print_cust_string},
 			{"r", print_rev_string},
-			{"R", print_rot13},
-			{NULL, NULL}};
+			{"R", print_rot13}};
 
+	if (format == NULL)
+		return (-1);
 	va_start(list, format);
 	for (i = 0; format[i] && format; i++)
 	{
@@ -41,7 +42,6 @@ int _printf(const char *format, ...)
 				}
 			}
 			else
-
 				_putchar(format[i + 1]), ++printed;
 		}
 		else
