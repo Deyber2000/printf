@@ -24,7 +24,8 @@ int _printf(const char *format, ...)
 			{"X", print_up_hexa},
 			{"S", print_cust_string},
 			{"r", print_rev_string},
-			{"R", print_rot13}};
+			{"R", print_rot13},
+			{NULL, NULL}};
 
 	va_start(list, format);
 	for (i = 0; format[i] && format; i++)
