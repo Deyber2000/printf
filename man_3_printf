@@ -69,4 +69,4 @@ _printf("%p\n", &a);
 .SH BUGS
 No known bugs.
 .SH AUTHOR
-Deyber Castañeda, Tomas Gomez Velez.
+Deyber Castañeda Garzon, Tomas Gomez Velez.
