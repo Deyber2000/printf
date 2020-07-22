@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * print_string - prints a strin
+ * print_string - prints a string jejeje
  * @s: String from va_arg
  * Return: Length of the string
  **/
