@@ -20,18 +20,19 @@ int print_char(va_list c)
 
 int print_integer(va_list integer)
 {
-	int count = 0, i;
-	int *arr;
+	int count = 0, i, checker = 0, *arr;
 	int n = va_arg(integer, int);
 	int tmp = n;
 
+	if (n < 0)
+		checker = 1, n = -n, tmp = -tmp;
 	while (n / 10 != 0)
 	{
 		n /= 10;
 		count++;
 	}
-	if (tmp < 0)
-		_putchar('-'), n = -n, tmp = -tmp, count++;
+	if (checker == 1)
+		_putchar('-');
 	count++;
 	arr = malloc(count * sizeof(int));
 	for (i = 0; i < count; i++)
@@ -45,7 +46,7 @@ int print_integer(va_list integer)
 	}
 	free(arr);
 	va_end(integer);
-	if (tmp < 0)
+	if (checker == 1)
 		count++;
 	return (count);
 }
