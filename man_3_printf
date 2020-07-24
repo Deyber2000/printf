@@ -1,7 +1,7 @@
-.TH man 3 "21 July 2020" "1.0" "_printf man page"
-.SH Name
+.TH man 3 "21 July 2020" "_printf man page"
+.SH NAME
 .B _printf
-- send to stdout a formated string of characters
+
 .SH SYNOPSIS
 #include "holberton.h"
 .br
@@ -10,22 +10,24 @@
 .B printf (\fIconst\fR \fIchar\fR \fI*format\fR, \fI...\fR);
 .SH DESCRIPTION
 .B _printf()
-Writes output to stdout, the standaroutput stream. 
+is a function used to do formated printing in standar output.
 .I Format
-Under the control of a format string that specifies how subsequent arguments
-.B Return Value
+Can also contain format specifiers that are replaced by the values specified in subsequent aditional areguments passed to the function.
+.B Return:
 On success _printf returns the number of characters printed (excluding the null byte used to endoutput to strings).
 In case of error, _printf returns:
 .B -1.
 
-.SH Format string
+.SH FORMAT STRING
 It is a character string, writen to stduot.
 It is also composed by zero or more conversion specifications.
 Each conversion specification is introduced by the character %, and ends with a conversion specifier.
 The arguments are used in the order given by the user.
 
-.SH Conversion specifier
-An character that specifies the type of conversion to be applied. The options are:
+.SH SUPPORTED FORMAT SPECIFIERS
+A character that specifies the type of conversion to be applied.
+Each specifier is introduced by the character %.
+The options available are:
 .TP
 .BR c
 The argument is converted to char, and then writes it to standard output.
@@ -53,13 +55,10 @@ Takes a char * as argument, and writes it to standard output string, but in reve
 .TP
 .B R
 Takes a char * as an arguent, and converts it into ROT13 notation, and writes it to standard output.
-.TP
-.B %
-A '%' character is written to standar output.
 .B p
 A memory address is taken as an argument, and written in hexadecimal notation to standard output.
 .SH EXAMPLE
-if you want to print the adress in memory of a variable:
+If you want to print the adress in memory of a variable:
 
 #include "holberton.h"
 
