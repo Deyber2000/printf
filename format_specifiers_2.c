@@ -2,7 +2,7 @@
 
 /**
  * print_string - prints a string
- * @s: String from va_arg
+ * @s: String from va_arg...
  * Return: Length of the string
  **/
 int print_string(va_list s)
